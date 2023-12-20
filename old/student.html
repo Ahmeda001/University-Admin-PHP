@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Student Record Management</title>
+</head>
+<body>
+    <header>
+        <h1>Student Record Management System</h1>
+    </header>
+    
+    <nav>
+        <!-- Add navigation links here if needed -->
+    </nav>
+
+    <section id="main-content">
+        <article>
+            <h2>Welcome to the Student Record Management System</h2>
+            <p>This system helps you manage student records efficiently.</p>
+        </article>
+        
+        <article>
+            <h2>Add New Student</h2>
+            <form action="student_form.php" method="post">
+
+                <label for="studentID">Student ID:</label>
+                <input type="text" id="studentID" name="studentID" required>
+
+
+                <label for="studentName">Student Name:</label>
+                <input type="text" id="studentName" name="studentName" required>
+                
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <button type="submit">Add Student</button>
+            </form>
+        </article>
+
+        <!-- Add more sections and articles as needed -->
+
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Student Record Management System</p>
+    </footer>
+</body>
+</html>
