@@ -5,8 +5,8 @@ include('db_connection.php');
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
-    $studentID = $_POST["studentID"];
     $studentName = $_POST["studentName"];
+    $studentID = $_POST["studentID"];
     $email = $_POST["email"];
     $dep = $_POST["dep"];
     $cgpa = $_POST["cgpa"];
@@ -21,18 +21,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . mysqli_connect_error());
     }
 
-    // Prepare and execute the SQL query to update data in the database
-    $query = mysqli_prepare($conn, "UPDATE student SET name=?, email=?, dep=?, cgpa=? WHERE id=?");
+    // Prepare and execute the SQL query to insert data into the database
+    $query = mysqli_prepare($conn, "INSERT INTO student (id, name, email, dep, cgpa) VALUES (?, ?, ?, ?, ?)");
 
     // Bind parameters to the prepared statement
-    mysqli_stmt_bind_param($query, 'ssdsi', $studentName, $email, $dep, $cgpa, $studentID);
+    mysqli_stmt_bind_param($query, 'isssd', $studentID, $studentName, $email, $dep, $cgpa);
 
     // Execute the statement
     $result = mysqli_stmt_execute($query);
 
     // Check if the execution was successful
     if ($result) {
-       
+        
     } else {
         // Output an error message
         echo "Error: " . mysqli_error($conn);
