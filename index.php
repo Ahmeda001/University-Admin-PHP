@@ -3,19 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        
+    </style>
     <link rel="stylesheet" href="styles.css">
     <title>University Record Management</title>
 </head>
 <body>
     <header>
-        <h1>University Record Management System</h1>
+    <img src="uni.jpg" alt="Description of the image">    
+        <h1>University Management System</h1>
     </header>
     
     <nav>
         <ul>    
-            <li><a href="student.php">Student Record Management System</a></li>
-            <li><a href="teacher.html">Teacher Record Management System</a></li>
-            <li><a href="employee.html">Employee Record Management System</a></li>
+            <li><a href="Student/student.php">Student Records</a></li>
+            <li><a href="Teacher/teacher.php">Teacher Records</a></li>
         </ul>
     </nav>
         <!-- dd navigation links here if needed -->
@@ -32,7 +35,7 @@
     </section>
 
     <footer>
-        <p>&copy; 2023 Student Record Management System</p>
+        <p>&copy; 2023 University Management System</p>
     </footer>
 </body>
 </html>
