@@ -5,8 +5,8 @@ include('db_connection.php');
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
-    $studentName = $_POST["studentName"];
     $studentID = $_POST["studentID"];
+    $studentName = $_POST["studentName"];
     $email = $_POST["email"];
     $dep = $_POST["dep"];
     $cgpa = $_POST["cgpa"];
@@ -21,18 +21,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . mysqli_connect_error());
     }
 
-    // Prepare and execute the SQL query to insert data into the database
-    $query = mysqli_prepare($conn, "INSERT INTO student (id, name, email, dep, cgpa) VALUES (?, ?, ?, ?, ?)");
+    // Prepare and execute the SQL query to update data in the database
+    $query = mysqli_prepare($conn, "UPDATE student SET name=?, email=?, dep=?, cgpa=? WHERE id=?");
 
     // Bind parameters to the prepared statement
-    mysqli_stmt_bind_param($query, 'isssd', $studentID, $studentName, $email, $dep, $cgpa);
+    mysqli_stmt_bind_param($query, 'ssssi', $studentName, $email, $dep, $cgpa, $studentID);
 
     // Execute the statement
     $result = mysqli_stmt_execute($query);
 
     // Check if the execution was successful
     if ($result) {
-        
+        // Data updated successfully
     } else {
         // Output an error message
         echo "Error: " . mysqli_error($conn);
@@ -61,20 +61,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <!-- Add navigation links here if needed -->
     </nav>
 
-        <button id="Back to Main" >Back to Main</button>
-            <script>
-            // Get the button element
-            var openLocalPageButton = document.getElementById('Back to Main');
+    <button id="Back to Main">Back to Main</button>
+    <script>
+        // Get the button element
+        var openLocalPageButton = document.getElementById('Back to Main');
 
-            // Attach a click event listener to the button
-            openLocalPageButton.addEventListener('click', function() {
-                // Relative path to the local webpage
-                var localPagePath = 'student.php';
+        // Attach a click event listener to the button
+        openLocalPageButton.addEventListener('click', function() {
+            // Relative path to the local webpage
+            var localPagePath = 'student.php';
 
-                // Open the local webpage in a new window or tab
-                window.location.href = localPagePath;
-            });
-            </script>
+            // Open the local webpage in a new window or tab
+            window.location.href = localPagePath;
+        });
+    </script>
 
     <section id="main-content">
         <article>
@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label for="cgpa">CGPA:</label>
                 <input type="text" id="cgpa" name="cgpa" required>
 
-                <button type="submit"  onclick="editData()" >Update Student</button>
+                <button type="submit" onclick="editData()" >Update Student</button>
             </form>
         </article>
     </section>
@@ -105,8 +105,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </footer>
 </body>
 </html>
-
-
 <script>
     function editData() {
             // Implement logic for editing data
