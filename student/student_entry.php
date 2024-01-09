@@ -79,10 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     <section id="main-content">
-        <article>
-            <h2>Welcome to the Student Record Management System</h2>
-            <p>This system helps you manage student records efficiently.</p>
-        </article>
+        
         
         <article>
             <h2>Add New Student</h2>
