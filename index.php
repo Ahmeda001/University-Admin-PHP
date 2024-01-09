@@ -7,12 +7,12 @@
         
     </style>
     <link rel="stylesheet" href="styles.css">
-    <title>University Record Management</title>
+    <title>Cipher Tech University (CTU)</title>
 </head>
 <body>
     <header>
-    <img src="uni.jpg" alt="Description of the image">    
-        <h1>University Management System</h1>
+    <img src="uni.png" alt="Description of the image">    
+        <h1>CTU Management System</h1>
     </header>
     
     <nav>
