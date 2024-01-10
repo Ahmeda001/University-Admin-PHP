@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "INSERT INTO users (email, password) VALUES ('$email', '$hashed_password')";
 
         if ($conn->query($sql) === TRUE) {
-            header("Location: index.php");
+            header("Location: login.php");
             exit();
             
         } else {
