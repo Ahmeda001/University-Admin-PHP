@@ -118,7 +118,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
 <img src="uni.png" alt="Description of the image"> 
-    <h2>CTU Signup</h2>
+    <h2>CTU Admin Signup</h2>
 
     <label for="email">Email:</label>
     <input type="email" id="email" name="email" required>
@@ -127,7 +127,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <input type="password" id="password" name="password" required>
 
     <button type="submit" onclick="editData()">Sign Up</button>
+    <button id="Back to Main" >LOGIN</button>
+            <script>
+            // Get the button element
+            var openLocalPageButton = document.getElementById('Back to Main');
+
+            // Attach a click event listener to the button
+            openLocalPageButton.addEventListener('click', function() {
+                // Relative path to the local webpage
+                var localPagePath = 'login.php';
+
+                // Open the local webpage in a new window or tab
+                window.location.href = localPagePath;
+            });
+            </script>
 </form>
+
 
 </body>
 </html>

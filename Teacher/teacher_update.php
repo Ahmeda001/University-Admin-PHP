@@ -5,9 +5,9 @@ include('db_connection.php');
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
-    $teacherName = $_POST["teacherName"];
     $teacherID = $_POST["teacherID"];
-    $phone = $_POST["phone"];   
+    $teacherName = $_POST["teacherName"];
+    $phone = $_POST["phone"];
     $email = $_POST["email"];
     $dep = $_POST["dep"];
     $exp = $_POST["exp"];
@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $query = mysqli_prepare($conn, "UPDATE teacher SET name=?, phone=?, email=?, dep=?, exp=? WHERE id=?");
 
     // Bind parameters to the prepared statement
-    mysqli_stmt_bind_param($query, 'sssssi', $studentName, $name, $email, $dep, $cgpa, $studentID);
+    mysqli_stmt_bind_param($query, 'sssssi', $teacherName, $phone, $email, $dep, $exp, $teacherID);
 
     // Execute the statement
     $result = mysqli_stmt_execute($query);
@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Update Student Record</title>
+    <title>Update Teacher Record</title>
 </head>
 <body>
     <header>
@@ -81,26 +81,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
          <article>
             <h2>Update Teacher Record</h2>
             <form action="teacher_entry.php" method="post">
-            <label for="teacherID">Teacher ID:</label>
+                <label for="teacherID">Teacher ID:</label>
                 <input type="text" id="teacherID" name="teacherID" required>
-                
                 
                 <label for="teacherName">Teacher Name:</label>
                 <input type="text" id="teacherName" name="teacherName" required>
 
                 <label for="phone">Phone:</label>
-                <input type="phone" id="phone" name="phone" required>
+                <input type="text" id="phone" name="phone" required>
 
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
 
                 <label for="dep">Dep:</label>
-                <input type="dep" id="dep" name="dep" required>
+                <input type="text" id="dep" name="dep" required>
 
                 <label for="exp">Exp:</label>
-                <input type="exp" id="exp" name="exp" required>
+                <input type="text" id="exp" name="exp" required>
                 
-                <button type="submit"  onclick="editData()" >Update teacher</button>
+                <button type="submit" onclick="editData()">Update teacher</button>
             </form>
         </article>
     </section>
@@ -110,6 +109,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </footer>
 </body>
 </html>
+
 <script>
     function editData() {
             // Implement logic for editing data
